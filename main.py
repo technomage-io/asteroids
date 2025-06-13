@@ -13,24 +13,19 @@ def main():
     x = SCREEN_WIDTH / 2
     y = SCREEN_HEIGHT / 2
     player = Player(x,y)
+    clock = pygame.time.Clock() 
+
     while True: 
-        pygame.time.Clock().tick(60)
+        dt = clock.tick(60) / 1000.0
         screen.fill("black")
         player.draw(screen)
+        player.update(dt)
 
         pygame.display.flip()
         
         for event in pygame.event.get():
-              if event.type == pygame.QUIT:
-               return     
-        
-
-
-
-
-
-
-
+            if event.type == pygame.QUIT:
+                return
 
 
 
