@@ -42,6 +42,14 @@ def main():
            
         for sprite in updatable:
             sprite.update(dt)
+            
+            for shot in shots:
+                for asteroid in asteroids:
+                    if asteroid.collides(shot):
+                        asteroid.kill()
+                        shot.kill()
+             
+        
         for sprite in asteroids:
             if sprite.collides(player):
                 print("Game Over!")
